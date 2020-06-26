@@ -30,13 +30,13 @@ ROSE_LIBS = $(ROSE_LIB_DIR)/librose.la
 
 # Location of source code
 ROSE_SOURCE_DIR = \
-   /home/freecc/source/rose_src/quiz-practicals
+		/home/freecc/source/rose_src/quiz-practicals
 
 executableFiles = constTypeModifier
 
 # Default make rule to use
 all: $(executableFiles)
-        @if [ x$${ROSE_IN_BUILD_TREE:+present} = xpresent ]; then echo "ROSE_IN_BUILD_TREE should notbe set" >&2; exit 1; fi
+		@if [ x$${ROSE_IN_BUILD_TREE:+present} = xpresent ]; then echo "ROSE_IN_BUILD_TREE should notbe set" >&2; exit 1; fi
 
 # Example of how to use ROSE (linking to dynamic library, which is must faster
 # and smaller than linking to static libraries).  Dynamic linking requires the
@@ -47,4 +47,4 @@ $(executableFiles):
 #       g++ -I$(ROSE_INCLUDE_DIR) -o $@ $(ROSE_SOURCE_DIR)/$@.C -L$(ROSE_LIB_DIR) -Wl,-rpath $(ROSE_LIB_DIR) $(ROSE_LIBS)
 #       g++ -I$(ROSE_INCLUDE_DIR) -o $@ $(ROSE_SOURCE_DIR)/$@.C $(ROSE_LIBS)
 #       /bin/sh ../libtool --mode=link $(CXX) $(CPPFLAGS) $(CXXFLAGS)  $(LDFLAGS) -I$(ROSE_INCLUDE_DIR) $(BOOST_CPPFLAGS) -o $@ $(ROSE_SOURCE_DIR)/$@.C $(ROSE_LIBS)
-        /bin/sh ../libtool --mode=link $(CXX) $(CPPFLAGS) $(CXXFLAGS)  $(LDFLAGS) -I$(ROSE_INCLUDE_DIR) $(BOOST_CPPFLAGS) $(ROSE_DWARF_INCLUDES) -o $@ $(ROSE_SOURCE_DIR)/$@.C $(ROSE_LIBS) $(ROSE_DWARF_LIBS_WITH_PATH)
+		/bin/sh ../libtool --mode=link $(CXX) $(CPPFLAGS) $(CXXFLAGS)  $(LDFLAGS) -I$(ROSE_INCLUDE_DIR) $(BOOST_CPPFLAGS) $(ROSE_DWARF_INCLUDES) -o $@ $(ROSE_SOURCE_DIR)/$@.C $(ROSE_LIBS) $(ROSE_DWARF_LIBS_WITH_PATH)
