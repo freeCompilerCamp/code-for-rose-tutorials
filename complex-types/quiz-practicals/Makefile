@@ -13,8 +13,8 @@ ROSE_INCLUDE_DIR = /home/freecc/install/rose_install/include
 BOOST_CPPFLAGS = -pthread -I/usr/include
 
 # Location of Dwarf include and lib (if ROSE is configured to use Dwarf)
-ROSE_DWARF_INCLUDES = @DWARF_INCLUDE@
-ROSE_DWARF_LIBS_WITH_PATH = @DWARF_LINK@
+ROSE_DWARF_INCLUDES = 
+ROSE_DWARF_LIBS_WITH_PATH = 
 
 # Location of library directory after "make install"
 ROSE_LIB_DIR = /home/freecc/install/rose_install/lib
