@@ -1,0 +1,2 @@
+Found a const type-quantified variable: foo (uint64_t)
+Found a const type-quantified variable: PI (float)
