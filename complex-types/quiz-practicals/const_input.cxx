@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <cmath>
 
-const uint64_t foo = 632356;
+const int foo = 632356;
 
 void bar() {
 	const float PI = 3.1415926;
