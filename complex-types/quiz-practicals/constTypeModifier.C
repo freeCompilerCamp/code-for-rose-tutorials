@@ -1,27 +1,35 @@
+#include <fstream>
+
 #include "rose.h"
 
 class visitorTraversal : public AstSimpleProcessing {
 	public:
+    visitorTraversal();
+    ~visitorTraversal();
+		
 		void visit(SgNode* n);
+
+  private:
+    std::ofstream outputFile;
 };
+
+visitorTraversal::visitorTraversal() {
+  // Open a file for writing the output of your tool
+  outputFile.open("const_output.txt");
+}
+
+visitorTraversal::~visitorTraversal() {
+  outputFile.close();
+}
 
 void visitorTraversal::visit(SgNode* n) {
 
-	// Open a file for writing the output of your tool
-	FILE *f = fopen("const_output.txt", "w");
-	if (f == NULL) {
-		printf("Unable to open file. Exiting.\n");
-		exit(1);
-	}
-
-	// To write a variable to the opened file, see below as an example.
-	// x and y represent the strings to be inserted into each %s, respectively.
-	// fprintf(f, "Found a const type-quanfitied variable: %s (%s)\n", x, y);
+	// To write a variable x to the opened file, see below as an example
+	// outputFile << "Found a const type-quantified variable: " << x << ".\n";
 
 	// Insert your tool code here!
 
-	// Close the file
-	fclose(f);
+
 }
 
 int main(int argc, char* argv[]) {
@@ -29,8 +37,12 @@ int main(int argc, char* argv[]) {
 
 	SgProject *project = frontend(argc, argv);
 
-	visitorTraversal myvisitor;
-	myvisitor.traverseInputFiles(project, preorder);
+	visitorTraversal* myvisitor = new visitorTraversal();
+	myvisitor->traverseInputFiles(project, preorder);
+	std::cout << "Done traversing input files and output written to file."
+		<< std::endl;
+  delete myvisitor;
 
-	return backend(project);
+  // Do not feed to backend since we are not modifying the AST
+	return 0;
 }
