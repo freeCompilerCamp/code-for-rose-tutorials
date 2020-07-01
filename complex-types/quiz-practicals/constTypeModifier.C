@@ -6,7 +6,22 @@ class visitorTraversal : public AstSimpleProcessing {
 };
 
 void visitorTraversal::visit(SgNode* n) {
-	// Insert your code here!
+
+	// Open a file for writing the output of your tool
+	FILE *f = fopen("const_output.txt", "w");
+	if (f == NULL) {
+		printf("Unable to open file. Exiting.\n");
+		exit(1);
+	}
+
+	// To write a variable to the opened file, see below as an example.
+	// x and y represent the strings to be inserted into each %s, respectively.
+	// fprintf(f, "Found a const type-quanfitied variable: %s (%s)\n", x, y);
+
+	// Insert your tool code here!
+
+	// Close the file
+	fclose(f);
 }
 
 int main(int argc, char* argv[]) {
