@@ -13,7 +13,7 @@ ROSE_RPATHS      = $(shell $(ROSE_HOME)/bin/rose-config ROSE_RPATHS)
 ROSE_LINK_RPATHS = $(shell $(ROSE_HOME)/bin/rose-config ROSE_LINK_RPATHS)
 
 # Location of source code
-ROSE_SOURCE_DIR = /home/freecc/source/rose_src/quiz-practicals
+ROSE_SOURCE_DIR = /home/freecc/source/rose_src/practicals
 
 # Executable files to build from source
 executableFile = constTypeModifier
