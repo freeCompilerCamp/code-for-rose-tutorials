@@ -1,2 +1,2 @@
-Found a const type-quantified variable: foo (SgTypeInt)
-Found a const type-quantified variable: PI (SgTypeFloat)
+Found a const type-qualified variable: foo (SgTypeInt)
+Found a const type-qualified variable: PI (SgTypeFloat)
